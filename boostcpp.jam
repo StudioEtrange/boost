@@ -238,6 +238,12 @@ rule declare_install_and_stage_proper_targets ( libraries * : headers * )
                 Skipping Boost.Wave library with threading=single. :
                 libs/$(l)/build : <threading>multi ;
         }
+        else if $(l) = mpi
+        {
+            filtered-target $(l)-for-install :
+                Skipping Boost.MPI library with threading=single. :
+                libs/$(l)/build : <threading>multi ;
+        }
         else if $(l) = thread
         {
             filtered-target $(l)-for-install :
